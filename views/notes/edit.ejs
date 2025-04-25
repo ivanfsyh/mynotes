@@ -1,0 +1,40 @@
+<!-- Form -->
+<main class="py-6">
+    <div class="max-w-3xl mx-auto px-4">
+        <form action="/edit" method="POST" class="bg-white p-6 rounded-xl shadow-sm space-y-5">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <input type="hidden" name="id" value="<%= note._id %>" />
+            <input type="hidden" name="date" value="<%= today.toLocaleDateString() %>" />
+            <div>
+                <label for="title" class="block text-sm font-medium text-gray-700">Judul</label>
+                <input type="text" id="title" name="title" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" value="<%= note.title %>" />
+            </div>
+
+            <div>
+                <label for="content" class="block text-sm font-medium text-gray-700">Isi Catatan</label
+        >
+        <textarea
+          id="content"
+          name="content"
+          rows="8"
+          required
+          class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        >
+<%= note.content %></textarea
+        >
+      </div>
+
+      <div class="flex justify-end gap-3">
+        <a href="/home" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-800"
+          >Kembali</a
+        >
+        <button
+          type="submit"
+          class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Simpan
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

@@ -1,0 +1,37 @@
+<!-- views/index.ejs -->
+<div class="flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
+        <h2 class="text-2xl font-bold mb-6">📒MyNotes</h2>
+
+        <% if (msg.length !== 0) { %>
+            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <span class="font-medium">Warning!</span>
+                <%= msg %>
+            </div>
+            <% } %>
+                <% if (success.length !== 0) { %>
+                    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+                        <span class="font-medium">Success!</span>
+                        <%= success %>
+                    </div>
+                    <% } %>
+
+                        <form action="/login" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                            <label for="username" class="block text-sm font-medium text-gray-700">
+        Username
+      </label>
+                            <input type="text" name="username" class="w-full p-2 mb-4 border border-gray-300 rounded-md" required />
+                            <label for="password" class="block text-sm font-medium text-gray-700">
+        Password
+      </label>
+                            <input type="password" name="password" class="w-full p-2 mb-4 border border-gray-300 rounded-md" required />
+                            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+        Login
+      </button>
+                        </form>
+                        <p class="mt-4 text-sm">
+                            Don't have an account? <a href="/register" class="text-blue-500">Register</a>
+                        </p>
+    </div>
+</div>
