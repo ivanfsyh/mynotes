@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 
@@ -36,7 +37,7 @@ app.use(
         saveUninitialized: false,
         cookie: { maxAge: 20 * 60 * 1000 }, // 20 menit
         store: MongoStore.create({
-            mongoUrl: 'mongodb://localhost:27017/mynotes',
+            mongoUrl: process.env.MONGO_URI,
             collectionName: 'sessions',
         }),
     })
